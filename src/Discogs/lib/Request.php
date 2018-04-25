@@ -78,7 +78,8 @@ class Request
         if (!empty($params)) {
             $this->uri .= '?';
             foreach ($params as $key => $val) {
-                $this->uri .= $key . '=' . $val . '&';
+                $value = str_replace(' ', '%20', $val);
+                $this->uri .= $key . '=' . $value . '&';
             }
             $this->uri = trim($this->uri, '&');
         }
